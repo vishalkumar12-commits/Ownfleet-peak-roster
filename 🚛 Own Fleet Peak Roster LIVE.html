@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)file:///C:/Users/vishal.kumar12/Downloads/own_fleet_peakroster_html_20261005_1339b1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>🚛 Own Fleet Peak Roster LIVE</title>
+<script src="./🚛 Own Fleet Peak Roster LIVE_files/xlsx.full.min.js.download"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Segoe UI',Roboto,'Inter',Arial,sans-serif;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(139,92,246,.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 0%, rgba(236,72,153,.14) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 100%, rgba(6,182,212,.12) 0%, transparent 50%),
+    linear-gradient(180deg,#f8fafc 0%,#eef2ff 45%,#f0f9ff 100%);
+  background-attachment:fixed;
+  color:#0f172a;
+  padding:20px 24px;
+  min-height:100vh;
+}
+
+/* ---------- HEADER ---------- */
+.header{margin-bottom:6px}
+.header h1{
+  font-size:1.75rem;
+  font-weight:900;
+  letter-spacing:.6px;
+  background:linear-gradient(90deg,#7c3aed 0%,#2563eb 35%,#059669 65%,#d97706 100%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 2px 6px rgba(124,58,237,.25));
+}
+.header .sub{color:#64748b;font-size:.82rem;margin-top:6px}
+.header .sub b{color:#0891b2;font-weight:700;letter-spacing:.4px}
+
+/* ---------- UPLOAD ---------- */
+.upload-box{
+  background:linear-gradient(135deg,rgba(139,92,246,.10),rgba(59,130,246,.08));
+  border:2px dashed rgba(139,92,246,.5);
+  border-radius:16px;padding:30px;text-align:center;margin:18px 0;
+  backdrop-filter:blur(8px);
+  box-shadow:0 12px 36px rgba(139,92,246,.18);
+}
+.upload-box input[type=file]{display:none}
+.upload-box label{
+  cursor:pointer;
+  background:linear-gradient(135deg,#8b5cf6,#ec4899 55%,#f59e0b);
+  color:#fff;padding:13px 30px;border-radius:11px;
+  font-weight:700;font-size:.95rem;display:inline-block;transition:.25s;
+  box-shadow:0 10px 26px rgba(236,72,153,.4);
+}
+.upload-box label:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 14px 34px rgba(236,72,153,.55)}
+.upload-box p{color:#64748b;font-size:.8rem;margin-top:12px}
+
+/* ---------- MAIN LIVE ---------- */
+.main-live{
+  display:inline-flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,#059669,#10b981 50%,#22d3ee);
+  border:1px solid rgba(16,185,129,.5);
+  padding:14px 26px;border-radius:14px;margin-bottom:20px;
+  box-shadow:0 10px 28px rgba(16,185,129,.4), inset 0 1px 0 rgba(255,255,255,.35);
+  position:relative;overflow:hidden;
+}
+.main-live::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+  animation:shine 3s infinite;
+}
+@keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.main-live .label{font-size:.82rem;color:#ecfdf5;font-weight:700;letter-spacing:.3px;position:relative;z-index:1}
+.main-live .count{font-size:1.9rem;font-weight:900;color:#fff;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,.18);position:relative;z-index:1}
+
+/* ---------- TABS ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.tab{
+  padding:10px 18px;border-radius:11px;cursor:pointer;
+  background:linear-gradient(135deg,#ffffff,#f1f5f9);
+  border:1px solid rgba(148,163,184,.45);
+  font-size:.83rem;color:#334155;font-weight:600;
+  transition:all .22s ease;user-select:none;
+  box-shadow:0 2px 6px rgba(15,23,42,.06);
+}
+.tab:hover{
+  background:linear-gradient(135deg,rgba(139,92,246,.14),rgba(59,130,246,.10));
+  border-color:rgba(139,92,246,.55);
+  color:#1e293b;
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(139,92,246,.22);
+}
+.tab.active{
+  background:linear-gradient(135deg,#8b5cf6,#3b82f6 60%,#06b6d4);
+  border-color:rgba(139,92,246,.6);
+  color:#fff;font-weight:800;
+  box-shadow:0 0 22px rgba(139,92,246,.45), 0 10px 22px rgba(59,130,246,.35);
+  transform:translateY(-1px);
+}
+
+/* ---------- TAB BOX ---------- */
+.tab-box{
+  background:linear-gradient(135deg,#ffffff,#eef2ff 80%);
+  border:1px solid rgba(139,92,246,.25);
+  border-radius:16px;padding:16px 20px;margin-bottom:18px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+  box-shadow:0 12px 32px rgba(15,23,42,.08), inset 0 1px 0 rgba(255,255,255,.7);
+  backdrop-filter:blur(10px);
+}
+.tab-box .tb-left{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.tab-box .tb-name{
+  font-size:1.15rem;font-weight:900;letter-spacing:.4px;
+  background:linear-gradient(90deg,#7c3aed,#2563eb,#0891b2);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-right:16px;border-right:1px solid rgba(148,163,184,.35);
+  filter:drop-shadow(0 2px 4px rgba(37,99,235,.18));
+}
+.tab-box .shift-chip{
+  background:linear-gradient(135deg,#ffffff,#f1f5f9);
+  border:1px solid rgba(148,163,184,.35);
+  padding:7px 14px;border-radius:9px;
+  font-size:.75rem;color:#334155;font-weight:500;
+  box-shadow:0 2px 6px rgba(15,23,42,.05);
+}
+.tab-box .tb-live{
+  display:flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,#059669,#10b981 60%,#22d3ee);
+  border:1px solid rgba(16,185,129,.5);
+  padding:9px 18px;border-radius:11px;
+  font-size:.82rem;color:#ecfdf5;font-weight:700;
+  box-shadow:0 6px 18px rgba(16,185,129,.35), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.tab-box .tb-live b{color:#fff;font-size:1.25rem;font-weight:900;text-shadow:0 1px 4px rgba(0,0,0,.2)}
+
+/* ---------- TABLE ---------- */
+.table-wrap{
+  overflow-x:auto;border-radius:16px;
+  border:1px solid rgba(148,163,184,.35);
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+  box-shadow:0 14px 44px rgba(15,23,42,.10), inset 0 1px 0 rgba(255,255,255,.8);
+  backdrop-filter:blur(8px);
+}
+table{width:100%;border-collapse:collapse;font-size:.73rem;min-width:900px}
+thead th{
+  background:linear-gradient(180deg,#f1f5f9,#e2e8f0);
+  padding:12px 9px;text-align:left;color:#334155;
+  font-weight:800;font-size:.72rem;letter-spacing:.4px;
+  border-bottom:2px solid rgba(139,92,246,.35);
+  white-space:nowrap;position:sticky;top:0;z-index:2;
+  text-transform:uppercase;
+}
+thead th.date-th{text-align:center;min-width:46px;font-weight:700;color:#64748b;font-size:.68rem}
+tbody td{padding:10px 9px;border-bottom:1px solid rgba(148,163,184,.28);vertical-align:top;white-space:nowrap;color:#0f172a}
+tbody tr:nth-child(even) td{background:rgba(241,245,249,.55)}
+tbody tr:hover td{background:linear-gradient(90deg,rgba(139,92,246,.10),rgba(59,130,246,.06));transition:.15s}
+
+/* ---------- EMPLOYEE CELL ---------- */
+.emp-cell{min-width:290px;white-space:normal;line-height:1.5}
+.emp-row{display:flex;align-items:flex-start;gap:11px}
+.emp-dot{
+  width:11px;height:11px;border-radius:50%;margin-top:5px;flex-shrink:0;
+  background:#10b981;
+  box-shadow:0 0 0 3px rgba(16,185,129,.22), 0 0 10px rgba(16,185,129,.7);
+  animation:pulseGreen 1.6s infinite;
+}
+.emp-dot.inactive{
+  background:#ef4444;
+  box-shadow:0 0 0 3px rgba(239,68,68,.22), 0 0 10px rgba(239,68,68,.7);
+  animation:pulseRed 1.6s infinite;
+}
+@keyframes pulseGreen{
+  0%   {box-shadow:0 0 0 0 rgba(16,185,129,.6), 0 0 10px rgba(16,185,129,.7)}
+  70%  {box-shadow:0 0 0 10px rgba(16,185,129,0), 0 0 10px rgba(16,185,129,.3)}
+  100% {box-shadow:0 0 0 0 rgba(16,185,129,0), 0 0 10px rgba(16,185,129,.7)}
+}
+@keyframes pulseRed{
+  0%   {box-shadow:0 0 0 0 rgba(239,68,68,.6), 0 0 10px rgba(239,68,68,.7)}
+  70%  {box-shadow:0 0 0 10px rgba(239,68,68,0), 0 0 10px rgba(239,68,68,.3)}
+  100% {box-shadow:0 0 0 0 rgba(239,68,68,0), 0 0 10px rgba(239,68,68,.7)}
+}
+.emp-details{display:flex;flex-direction:column;min-width:0}
+
+.emp-name{font-weight:800;color:#0f172a;font-size:.84rem;display:block;margin-bottom:3px;letter-spacing:.15px}
+.desig{color:#2563eb;font-weight:600;font-size:.75rem;display:block;margin-bottom:3px}
+.desig.bold{
+  font-weight:900;letter-spacing:.3px;
+  background:linear-gradient(90deg,#d97706,#f59e0b,#d97706);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 6px rgba(217,119,6,.35));
+}
+.phone-centre{color:#64748b;font-size:.71rem;display:block;margin-bottom:2px}
+.phone-centre .ph{color:#1e293b;font-weight:600}
+.job-role{color:#64748b;font-size:.68rem;font-style:italic;display:block}
+
+td.emp-id-cell{
+  font-weight:800;font-size:.74rem;
+  font-family:Consolas,monospace;letter-spacing:.3px;
+  background:linear-gradient(90deg,#7c3aed,#8b5cf6,#7c3aed);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 6px rgba(124,58,237,.28));
+}
+td.date-cell{text-align:center;font-weight:800;font-size:.78rem;min-width:46px}
+
+/* ---------- SHIFT COLORS ---------- */
+.A{color:#059669;text-shadow:0 0 8px rgba(5,150,105,.35)}
+.B{color:#d97706;text-shadow:0 0 8px rgba(217,119,6,.3)}
+.C{color:#db2777;text-shadow:0 0 8px rgba(219,39,119,.3)}
+.G{color:#2563eb;text-shadow:0 0 8px rgba(37,99,235,.3)}
+.OFF,.WO,.L{color:#dc2626;font-size:.66rem;font-weight:700}
+.H,.OH{color:#ea580c;font-size:.66rem;font-weight:700}
+.NA,.empty{color:#94a3b8;font-size:.68rem}
+.Weekoff{color:#dc2626;font-size:.62rem;font-weight:700}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  text-align:center;color:#64748b;font-size:.72rem;
+  margin-top:26px;padding-top:16px;
+  border-top:1px solid rgba(139,92,246,.18);
+  letter-spacing:.5px;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:rgba(226,232,240,.6)}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#8b5cf6,#3b82f6);
+  border-radius:10px;border:2px solid rgba(241,245,249,.7);
+}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#a78bfa,#60a5fa)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🚛 Own Fleet Peak Roster LIVE</h1>
+  <div class="sub">real-time updates · <b id="clock">05 Oct 2026, 12:29:02</b></div>
+</div>
+
+<div class="upload-box" id="uploadBox" style="display: none;">
+  <input type="file" id="fileInput" accept=".xlsx,.xls">
+  <label for="fileInput">📁 Excel File Upload karo</label>
+  <p>Apni "Centralised Roaster for Peak (2026).xlsx" select karo</p>
+</div>
+
+<div class="main-live" id="mainLive" style="display: inline-flex;">
+  <span class="label">✅ Total Active (right now)</span>
+  <span class="count" id="mainActive">184</span>
+</div>
+
+<div class="tabs" id="tabs"><div class="tab active">Central Teamcommercial</div><div class="tab">Helpdesk</div><div class="tab">Maintenance Team</div><div class="tab">North</div><div class="tab">East</div><div class="tab">West</div><div class="tab">South bangalore</div><div class="tab">South Hyderabad</div><div class="tab">Trailer maintenance teams</div></div>
+<div id="content">
+    <div class="tab-box">
+      <div class="tb-left">
+        <div class="tb-name">📋 Central Teamcommercial</div>
+        <div class="shift-chip">A: 7AM–4PM · B: 2PM–11PM · C: 10PM–7AM · G: 9:30AM–6:30PM</div>
+      </div>
+      <div class="tb-live">✅ Active in this tab: <b id="tabActive">17</b></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Employee</th><th>Emp ID</th>
+          <th class="date-th">10-05</th><th class="date-th">10-06</th><th class="date-th">10-07</th><th class="date-th">10-08</th><th class="date-th">10-09</th><th class="date-th">10-10</th><th class="date-th">10-11</th><th class="date-th">10-12</th><th class="date-th">10-13</th><th class="date-th">10-14</th><th class="date-th">10-15</th><th class="date-th">10-16</th><th class="date-th">10-17</th><th class="date-th">10-18</th><th class="date-th">10-19</th><th class="date-th">10-20</th><th class="date-th">10-21</th><th class="date-th">10-22</th><th class="date-th">10-23</th><th class="date-th">10-24</th><th class="date-th">10-25</th><th class="date-th">10-26</th><th class="date-th">10-27</th><th class="date-th">10-28</th><th class="date-th">10-29</th><th class="date-th">10-30</th><th class="date-th">10-31</th><th class="date-th">11-01</th><th class="date-th">11-02</th><th class="date-th">11-03</th><th class="date-th">11-04</th><th class="date-th">11-05</th>
+        </tr></thead>
+        <tbody>
+  
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Ashish Sharma</span>
+              <span class="desig bold">Director</span>
+              <span class="phone-centre">📞 <span class="ph">7018408447</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations over All- Lead</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN019315</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Mahesh Kumar</span>
+              <span class="desig bold">Manager</span>
+              <span class="phone-centre">📞 <span class="ph">9911623588</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations PAN India</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN016068</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Lovelish Verma</span>
+              <span class="desig bold">Manager</span>
+              <span class="phone-centre">📞 <span class="ph">9953952867</span> – Selftrucking_central</span>
+              <span class="job-role">Central Commercial PAN India</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN012205</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Pankaj Rawat</span>
+              <span class="desig bold">Assistant Manager</span>
+              <span class="phone-centre">📞 <span class="ph">7895921206</span> – Selftrucking_central</span>
+              <span class="job-role">IOT and KTT</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN037730</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Gagandeep Singh</span>
+              <span class="desig bold">Assistant Manager</span>
+              <span class="phone-centre">📞 <span class="ph">7982113973</span> – Selftrucking_central</span>
+              <span class="job-role">Driver Mangement PAN India</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN062127</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Amar Gupta</span>
+              <span class="desig bold">Assistant Manager</span>
+              <span class="phone-centre">📞 <span class="ph">9810220262</span> – Selftrucking_central</span>
+              <span class="job-role">Central Commercial</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN051485</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Rajesh Kumar</span>
+              <span class="desig">Senior Associate</span>
+              <span class="phone-centre">📞 <span class="ph">6378823098</span> – Selftrucking_central</span>
+              <span class="job-role">Tyre Mangement Pan india</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN070786</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Naseem Haider</span>
+              <span class="desig">Senior Associate</span>
+              <span class="phone-centre">📞 <span class="ph">8802628014</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN000718</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Rohit Kumar</span>
+              <span class="desig">Senior Associate</span>
+              <span class="phone-centre">📞 <span class="ph">7827263988</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN039298</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Yogesh Singh Mehra</span>
+              <span class="desig">Senior Associate</span>
+              <span class="phone-centre">📞 <span class="ph">7668575322</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN032312</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Ajay Chauhan</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">9599248331</span> – Selftrucking_central</span>
+              <span class="job-role">Central Commercial PAN India</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN093128</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Gyan Ranjan</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">9304694998</span> – Selftrucking_central</span>
+              <span class="job-role">Central Commercial PAN India</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">SSN081022</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Sharat Jena</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">7835997994</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N291197</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Tarun Singh Chauhan</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">8949541282</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N351655</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Mukul Kumar</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">8630702044</span> – Selftrucking_central</span>
+              <span class="job-role">Central Commercial PAN India</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N279553</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Dikshant Kumar</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">7037827735</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N262278</td>
+        <td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="OFF">OFF</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot inactive"></span>
+            <div class="emp-details">
+              <span class="emp-name">Shailendra Kumar</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">7275157081</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N320450</td>
+        <td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="A">A</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="B">B</span></td><td class="date-cell"><span class="A">A</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot inactive"></span>
+            <div class="emp-details">
+              <span class="emp-name">Shyam Nath Roy</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">7050678788</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N198601</td>
+        <td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot"></span>
+            <div class="emp-details">
+              <span class="emp-name">Pankaj Kumar</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">7091369443</span> – Selftrucking_central</span>
+              <span class="job-role">Central Operations</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N350843</td>
+        <td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td>
+      </tr>
+    
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="emp-dot inactive"></span>
+            <div class="emp-details">
+              <span class="emp-name">Ankit</span>
+              <span class="desig">Associate</span>
+              <span class="phone-centre">📞 <span class="ph">9650979791</span> – Selftrucking_central</span>
+              <span class="job-role">IOT and KTT</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">N351656</td>
+        <td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="G">G</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="OFF">OFF</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td><td class="date-cell"><span class="C">C</span></td>
+      </tr>
+    </tbody></table></div></div>
+<div class="footer">Own Fleet Peak Roster · Live Dashboard</div>
+
+<script>
+/* ============================================================
+   DATE KEY HELPER
+   ============================================================ */
+function dateKey(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${dd}`;
+}
+
+/* ============================================================
+   PER-SHEET SHIFT CONFIG
+   ============================================================ */
+const SHEET_CONFIG = {
+  "Central Teamcommercial": {
+    display: "A: 7AM–4PM · B: 2PM–11PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:16}, B:{start:14,end:23}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "Helpdesk": {
+    display: "A: 7AM–4PM · B: 1PM–10PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:16}, B:{start:13,end:22}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "Maintenance Team": {
+    display: "A: 7AM–4PM · B: 1PM–10PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:16}, B:{start:13,end:22}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "North": {
+    display: "Day (A): 7AM–7PM · Night (B): 7PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:19}, B:{start:19,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "East": {
+    display: "A: 7AM–4PM · B: 2PM–11PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:16}, B:{start:14,end:23}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "West": {
+    display: "A: 7AM–4PM · B: 1PM–10PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:16}, B:{start:13,end:22}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "South bangalore": {
+    display: "A: 7AM–4PM · B: 1PM–10PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:16}, B:{start:13,end:22}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "South Hyderabad": {
+    display: "A: 7AM–4PM · B: 2PM–11PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:7,end:16}, B:{start:14,end:23}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  },
+  "Trailer maintenance teams": {
+    display: "A: 6AM–3PM · B: 2PM–11PM · C: 10PM–7AM · G: 9:30AM–6:30PM",
+    hours: { A:{start:6,end:15}, B:{start:14,end:23}, C:{start:22,end:7}, G:{start:9.5,end:18.5} }
+  }
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let DASHBOARD = {};
+let activeSheet = null;
+
+/* ============================================================
+   EXCEL PARSER
+   ============================================================ */
+document.getElementById('fileInput').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = evt => {
+    const wb = XLSX.read(new Uint8Array(evt.target.result), { type:'array', cellDates:false });
+    DASHBOARD = {};
+    wb.SheetNames.forEach(sn => { DASHBOARD[sn] = parseSheet(wb.Sheets[sn], sn); });
+    document.getElementById('uploadBox').style.display = 'none';
+    document.getElementById('mainLive').style.display = 'inline-flex';
+    activeSheet = wb.SheetNames[0];
+    renderTabs();
+    switchTab(activeSheet);
+    startClock();
+  };
+  reader.readAsArrayBuffer(file);
+});
+
+function parseSheet(ws, sheetName) {
+  const rows = XLSX.utils.sheet_to_json(ws, { header:1, defval:"", raw:false });
+  let headerIdx = -1;
+  for (let i = 0; i < rows.length; i++) {
+    const r = rows[i].map(c => String(c).toLowerCase());
+    if (r.includes('name') && r.some(c => c.includes('emp id'))) { headerIdx = i; break; }
+  }
+  if (headerIdx === -1) return { display:"", hours:{}, dates:[], employees:[] };
+
+  const header = rows[headerIdx].map(c => String(c).trim());
+  const colIdx = {
+    name:  header.findIndex(h => h.toLowerCase() === 'name'),
+    center:header.findIndex(h => h.toLowerCase() === 'center'),
+    phone: header.findIndex(h => h.toLowerCase().startsWith('ph')),
+    empId: header.findIndex(h => h.toLowerCase().includes('emp id')),
+    desig: header.findIndex(h => h.toLowerCase().startsWith('designation')),
+    weekoff:header.findIndex(h => h.toLowerCase() === 'weekoff'),
+    job:   header.findIndex(h => h.toLowerCase().startsWith('job role')),
+    transport:header.findIndex(h => h.toLowerCase().startsWith('trnsp')),
+  };
+  const dateStartIdx = colIdx.transport !== -1 ? colIdx.transport + 1 : header.length;
+
+  const dates = [];
+  for (let i = dateStartIdx; i < header.length; i++) {
+    const cell = header[i];
+    if (!cell) continue;
+    const s = String(cell).trim();
+    let key = null;
+
+    let m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (m) key = `${m[1]}-${m[2]}-${m[3]}`;
+
+    if (!key) {
+      m = s.match(/(\d{2})[-\/](\d{2})[-\/](\d{4})/);
+      if (m) key = `${m[3]}-${m[2]}-${m[1]}`;
+    }
+
+    if (!key && /^\d{4,5}$/.test(s)) {
+      const d = XLSX.SSF.parse_date_code(Number(s));
+      if (d) key = `${d.y}-${String(d.m).padStart(2,'0')}-${String(d.d).padStart(2,'0')}`;
+    }
+
+    if (!key) {
+      const d = new Date(s);
+      if (!isNaN(d.getTime()) && d.getFullYear() > 2000) {
+        key = dateKey(d);
+      }
+    }
+
+    if (key) dates.push({ key, colIdx:i });
+  }
+
+  const employees = [];
+  for (let i = headerIdx + 1; i < rows.length; i++) {
+    const row = rows[i];
+    const name = String(row[colIdx.name] || '').trim();
+    if (!name) continue;
+    if (/^duty roster/i.test(name)) continue;
+    const emp = {
+      name,
+      center: String(row[colIdx.center] || '').trim(),
+      phone:  String(row[colIdx.phone]  || '').trim(),
+      empId:  String(row[colIdx.empId]  || '').trim(),
+      designation: String(row[colIdx.desig] || '').trim(),
+      weekoff: String(row[colIdx.weekoff] || '').trim(),
+      jobRole: String(row[colIdx.job] || '').trim(),
+      schedule: {}
+    };
+    dates.forEach(d => {
+      emp.schedule[d.key] = String(row[d.colIdx] || '').trim();
+    });
+    employees.push(emp);
+  }
+
+  const cfg = SHEET_CONFIG[sheetName] || { display:"", hours:{} };
+  return {
+    display: cfg.display,
+    hours: cfg.hours,
+    dates: dates.map(d => d.key),
+    employees
+  };
+}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+function renderTabs() {
+  const tabsEl = document.getElementById('tabs');
+  tabsEl.innerHTML = '';
+  Object.keys(DASHBOARD).forEach(sn => {
+    const div = document.createElement('div');
+    div.className = 'tab' + (sn === activeSheet ? ' active' : '');
+    div.textContent = sn;
+    div.onclick = () => switchTab(sn);
+    tabsEl.appendChild(div);
+  });
+}
+
+function switchTab(sn) {
+  activeSheet = sn;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.textContent === sn));
+  renderSheet();
+  updateLiveCounts();
+}
+
+/* ============================================================
+   RENDER SHEET
+   ============================================================ */
+function isBoldDesig(d) {
+  const s = (d||'').toLowerCase();
+  return s.includes('director')
+      || s === 'manager'
+      || s.includes('senior manager')
+      || s.includes('sr.manager') || s.includes('sr manager')
+      || s.includes('assistant manager') || s.includes('asst. manager');
+}
+
+function renderSheet() {
+  const sheet = DASHBOARD[activeSheet];
+  if (!sheet) return;
+  const dates = sheet.dates;
+  const todayKey = dateKey(new Date());
+  const activeCodes = activeCodesForSheet(sheet);
+
+  let html = `
+    <div class="tab-box">
+      <div class="tb-left">
+        <div class="tb-name">📋 ${activeSheet}</div>
+        <div class="shift-chip">${sheet.display}</div>
+      </div>
+      <div class="tb-live">✅ Active in this tab: <b id="tabActive">0</b></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Employee</th><th>Emp ID</th>
+          ${dates.map(d => `<th class="date-th">${d.slice(5)}</th>`).join('')}
+        </tr></thead>
+        <tbody>
+  `;
+
+  sheet.employees.forEach(emp => {
+    const boldCls = isBoldDesig(emp.designation) ? ' bold' : '';
+    const todayVal = (emp.schedule[todayKey] || '').toUpperCase();
+    const isActive = activeCodes.includes(todayVal);
+    const dotCls = isActive ? 'emp-dot' : 'emp-dot inactive';
+
+    html += `
+      <tr>
+        <td class="emp-cell">
+          <div class="emp-row">
+            <span class="${dotCls}"></span>
+            <div class="emp-details">
+              <span class="emp-name">${esc(emp.name)}</span>
+              <span class="desig${boldCls}">${esc(emp.designation)}</span>
+              <span class="phone-centre">📞 <span class="ph">${esc(emp.phone)}</span> – ${esc(emp.center)}</span>
+              <span class="job-role">${esc(emp.jobRole)}</span>
+            </div>
+          </div>
+        </td>
+        <td class="emp-id-cell">${esc(emp.empId)}</td>
+        ${dates.map(d => {
+          const v = emp.schedule[d] || '';
+          return `<td class="date-cell"><span class="${cssClass(v)}">${esc(v)}</span></td>`;
+        }).join('')}
+      </tr>
+    `;
+  });
+
+  html += `</tbody></table></div>`;
+  document.getElementById('content').innerHTML = html;
+}
+
+function cssClass(v) {
+  if (!v) return 'empty';
+  const u = v.toUpperCase();
+  if (['A','B','C','G'].includes(u)) return u;
+  if (u.startsWith('OFF')) return 'OFF';
+  if (u.startsWith('WO'))  return 'WO';
+  if (u.startsWith('OH') || u === 'H') return 'H';
+  if (u.startsWith('NA'))  return 'NA';
+  if (u.toLowerCase().includes('weekoff')) return 'Weekoff';
+  if (u.startsWith('L'))   return 'L';
+  return 'NA';
+}
+
+function esc(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ============================================================
+   LIVE ACTIVE COUNT
+   ============================================================ */
+function isShiftActive(code, hours) {
+  const h = hours[code];
+  if (!h) return false;
+  const now = new Date();
+  const cur = now.getHours() + now.getMinutes()/60 + now.getSeconds()/3600;
+  if (h.start < h.end) return cur >= h.start && cur < h.end;
+  return cur >= h.start || cur < h.end;
+}
+
+function activeCodesForSheet(sheet) {
+  const active = [];
+  const codes = Object.keys(sheet.hours || {});
+  codes.forEach(c => { if (isShiftActive(c, sheet.hours)) active.push(c); });
+  return active;
+}
+
+function updateLiveCounts() {
+  const todayKey = dateKey(new Date());
+
+  let total = 0;
+  Object.keys(DASHBOARD).forEach(sn => {
+    const sheet = DASHBOARD[sn];
+    const act = activeCodesForSheet(sheet);
+    if (!act.length) return;
+    sheet.employees.forEach(emp => {
+      const v = (emp.schedule[todayKey] || '').toUpperCase();
+      if (act.includes(v)) total++;
+    });
+  });
+
+  document.getElementById('mainActive').textContent = total;
+
+  const tabEl = document.getElementById('tabActive');
+  if (tabEl && activeSheet && DASHBOARD[activeSheet]) {
+    const sheet = DASHBOARD[activeSheet];
+    const act = activeCodesForSheet(sheet);
+    let t = 0;
+    if (act.length) {
+      sheet.employees.forEach(emp => {
+        const v = (emp.schedule[todayKey] || '').toUpperCase();
+        if (act.includes(v)) t++;
+      });
+    }
+    tabEl.textContent = t;
+  }
+}
+
+/* ============================================================
+   CLOCK
+   ============================================================ */
+function tick() {
+  const now = new Date();
+  const opts = { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false };
+  const c = document.getElementById('clock');
+  if (c) c.textContent = now.toLocaleString('en-IN', opts);
+  if (Object.keys(DASHBOARD).length) updateLiveCounts();
+}
+
+function startClock() {
+  tick();
+  setInterval(tick, 1000);
+}
+
+setInterval(() => {
+  if (Object.keys(DASHBOARD).length) return;
+  const now = new Date();
+  const c = document.getElementById('clock');
+  if (c) c.textContent = now.toLocaleString('en-IN', {day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+}, 1000);
+</script>
+
+
+</body></html>
